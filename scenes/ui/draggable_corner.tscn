@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b85o2tvf4thl6"]
+
+[ext_resource type="Script" path="res://scripts/ui/drag_handle.gd" id="1_g3ebc"]
+
+[node name="ColorRect" type="ColorRect" node_paths=PackedStringArray("parent")]
+offset_right = 10.0
+offset_bottom = 10.0
+script = ExtResource("1_g3ebc")
+parent = NodePath("")
+
+[connection signal="mouse_entered" from="." to="." method="_mouse_enter"]
+[connection signal="mouse_exited" from="." to="." method="_mouse_exit"]

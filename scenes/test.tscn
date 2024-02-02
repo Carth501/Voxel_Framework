@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://c4ps5p5derr16"]
+
+[ext_resource type="PackedScene" uid="uid://cvnb8nvqhe34j" path="res://scenes/super_slab.tscn" id="2_lyiq1"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="3_5ciew"]
+[ext_resource type="Shader" path="res://shaders/SkyShader.gdshader" id="4_o58bt"]
+[ext_resource type="Script" path="res://scripts/InteractionController.gd" id="4_rmpv8"]
+[ext_resource type="PackedScene" uid="uid://bt23pbesacfh8" path="res://scenes/ui/user_interface.tscn" id="5_mffax"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5lsf4"]
+radius = 0.3
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_a261p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wwuke"]
+shader = ExtResource("4_o58bt")
+shader_parameter/skyColor = Color(0.611765, 0.698039, 0.992157, 1)
+shader_parameter/horizonColor = Color(0.176471, 0.133333, 0.054902, 1)
+
+[sub_resource type="Sky" id="Sky_00urg"]
+sky_material = SubResource("ShaderMaterial_wwuke")
+
+[sub_resource type="Environment" id="Environment_fftgk"]
+background_mode = 2
+sky = SubResource("Sky_00urg")
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_o11f3"]
+
+[node name="Test" type="Node"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.02017, 0)
+script = ExtResource("3_5ciew")
+jump_strength = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_5lsf4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+visible = false
+mesh = SubResource("CapsuleMesh_a261p")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="Camera" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+fov = 95.0
+
+[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D/Camera"]
+transform = Transform3D(4, 0, 0, 0, -1.74846e-07, -4, 0, 4, -1.74846e-07, 0, 0, 0)
+collide_with_areas = true
+
+[node name="InteractionController" type="Node3D" parent="CharacterBody3D" node_paths=PackedStringArray("ray")]
+script = ExtResource("4_rmpv8")
+ray = NodePath("../Camera/RayCast3D")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, -3.45761e-08, -8.24506e-08, 8.9407e-08, 0.386727, 0.922194, 0, -0.922194, 0.386727, 1.31216, 3.27944, -1.00207)
+light_energy = 1.13
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fftgk")
+
+[node name="Inivisible Wall" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Inivisible Wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Inivisible Wall/StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_o11f3")
+
+[node name="SuperSlab" parent="." instance=ExtResource("2_lyiq1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -8)
+
+[node name="UserInterface" parent="." node_paths=PackedStringArray("targetting_ray") instance=ExtResource("5_mffax")]
+targetting_ray = NodePath("../CharacterBody3D/Camera/RayCast3D")
+
+[connection signal="not_in_menu_mode" from="UserInterface" to="CharacterBody3D/InteractionController" method="toggle_interaction"]

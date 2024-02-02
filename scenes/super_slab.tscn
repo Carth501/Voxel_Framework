@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvnb8nvqhe34j"]
+
+[ext_resource type="PackedScene" uid="uid://dfa0pq7iikm5k" path="res://scenes/slab.tscn" id="1_86c75"]
+
+[node name="SuperSlab" type="Node3D"]
+
+[node name="Node" parent="." instance=ExtResource("1_86c75")]
+
+[node name="Node2" parent="." instance=ExtResource("1_86c75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Node3" parent="." instance=ExtResource("1_86c75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="Node4" parent="." instance=ExtResource("1_86c75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
+
+[node name="Node5" parent="." instance=ExtResource("1_86c75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="Node6" parent="." instance=ExtResource("1_86c75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 4)
+
+[node name="Node7" parent="." instance=ExtResource("1_86c75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+
+[node name="Node8" parent="." instance=ExtResource("1_86c75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 4)
+
+[node name="Node9" parent="." instance=ExtResource("1_86c75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="Node10" parent="." instance=ExtResource("1_86c75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="Node11" parent="." instance=ExtResource("1_86c75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 8)
+
+[node name="Node12" parent="." instance=ExtResource("1_86c75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 12)
+
+[node name="Node13" parent="." instance=ExtResource("1_86c75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8)
+
+[node name="Node14" parent="." instance=ExtResource("1_86c75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 12)
+
+[node name="Node15" parent="." instance=ExtResource("1_86c75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 8)
+
+[node name="Node16" parent="." instance=ExtResource("1_86c75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 12)

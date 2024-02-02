@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfa0pq7iikm5k"]
+
+[ext_resource type="PackedScene" uid="uid://vquyf1vufs41" path="res://scenes/full_block.tscn" id="1_6c28b"]
+
+[node name="Node" type="Node3D"]
+
+[node name="FullBlock" parent="." instance=ExtResource("1_6c28b")]
+
+[node name="FullBlock2" parent="." instance=ExtResource("1_6c28b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="FullBlock3" parent="." instance=ExtResource("1_6c28b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="FullBlock4" parent="." instance=ExtResource("1_6c28b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="FullBlock5" parent="." instance=ExtResource("1_6c28b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="FullBlock6" parent="." instance=ExtResource("1_6c28b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="FullBlock7" parent="." instance=ExtResource("1_6c28b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="FullBlock8" parent="." instance=ExtResource("1_6c28b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="FullBlock9" parent="." instance=ExtResource("1_6c28b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="FullBlock10" parent="." instance=ExtResource("1_6c28b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="FullBlock11" parent="." instance=ExtResource("1_6c28b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="FullBlock12" parent="." instance=ExtResource("1_6c28b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1)
+
+[node name="FullBlock13" parent="." instance=ExtResource("1_6c28b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="FullBlock14" parent="." instance=ExtResource("1_6c28b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 2)
+
+[node name="FullBlock15" parent="." instance=ExtResource("1_6c28b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="FullBlock16" parent="." instance=ExtResource("1_6c28b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3)

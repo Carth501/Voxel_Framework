@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://dasgj8uiob7jo"]
+
+[ext_resource type="Script" path="res://scripts/ui/EntityConfigurationPanel.gd" id="1_mrjc7"]
+[ext_resource type="Script" path="res://scripts/ui/drag_handle.gd" id="2_hib0y"]
+
+[node name="EntityConfigurationPanel" type="Control" node_paths=PackedStringArray("config_panel", "block_name_label", "x_spin_box", "y_spin_box")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 285.0
+offset_bottom = 274.0
+script = ExtResource("1_mrjc7")
+config_panel = NodePath("Panel")
+block_name_label = NodePath("Panel/BlockNameLabel")
+x_spin_box = NodePath("Panel/TabContainer/Texture/Control/XSpinBox")
+y_spin_box = NodePath("Panel/TabContainer/Texture/Control/YSpinBox")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 277.0
+offset_bottom = 270.0
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+layout_mode = 1
+offset_right = 10.0
+offset_bottom = 10.0
+script = ExtResource("2_hib0y")
+
+[node name="BlockNameLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_top = 22.0
+offset_right = 93.0
+offset_bottom = 45.0
+text = "Block Name"
+
+[node name="TabContainer" type="TabContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 57.0
+offset_right = 274.0
+offset_bottom = 265.0
+
+[node name="Texture" type="HFlowContainer" parent="Panel/TabContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Panel/TabContainer/Texture"]
+layout_mode = 2
+
+[node name="XSpinBox" type="SpinBox" parent="Panel/TabContainer/Texture/Control"]
+layout_mode = 2
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 137.0
+offset_bottom = 39.0
+step = 0.01
+prefix = "x:"
+
+[node name="YSpinBox" type="SpinBox" parent="Panel/TabContainer/Texture/Control"]
+layout_mode = 2
+offset_left = 140.0
+offset_top = 8.0
+offset_right = 268.0
+offset_bottom = 39.0
+step = 0.01
+update_on_text_changed = true
+prefix = "y:"
+
+[connection signal="mouse_entered" from="Panel/ColorRect" to="Panel/ColorRect" method="_mouse_enter"]
+[connection signal="mouse_exited" from="Panel/ColorRect" to="Panel/ColorRect" method="_mouse_exit"]
+[connection signal="value_changed" from="Panel/TabContainer/Texture/Control/XSpinBox" to="." method="x_mesh_change"]
+[connection signal="value_changed" from="Panel/TabContainer/Texture/Control/YSpinBox" to="." method="y_mesh_change"]
