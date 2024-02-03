@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://23q7jcmi4n37"]
+[gd_scene load_steps=9 format=3 uid="uid://c1oj0a6kymh7a"]
 
 [ext_resource type="Texture2D" uid="uid://bilg3gm66hhb0" path="res://textures/artificial/leafy_grass_diff_4k.png" id="1_1en4t"]
 [ext_resource type="Script" path="res://scripts/blocks/generic_block.gd" id="1_sotm0"]

@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://duyxghoct8ext"]
+
+[ext_resource type="Shader" path="res://shaders/highlight_item.gdshader" id="1_iva3y"]
+[ext_resource type="Script" path="res://scripts/ui/item.gd" id="2_l2r2h"]
+[ext_resource type="PackedScene" uid="uid://c1oj0a6kymh7a" path="res://scenes/voxel.tscn" id="3_jxhcr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ri3b3"]
+shader = ExtResource("1_iva3y")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vsyhw"]
+shader = ExtResource("1_iva3y")
+
+[node name="Item" type="Control" node_paths=PackedStringArray("background")]
+material = SubResource("ShaderMaterial_ri3b3")
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("2_l2r2h")
+background = NodePath("ColorRect")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_vsyhw")
+layout_mode = 0
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 64.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 2
+offset_left = -32.0
+offset_right = 480.0
+offset_bottom = 512.0
+scale = Vector2(0.125, 0.125)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+gui_disable_input = true
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(-0.707107, -0.408607, 0.577096, 0, 0.816138, 0.577858, -0.707107, 0.408607, -0.577096, 1, 0.98, -1)
+fov = 28.6
+far = 4.0
+
+[node name="Voxel" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_jxhcr")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.942946, 0.2144, 0.254727, 0.00854283, -0.780397, 0.625226, 0.332837, -0.587378, -0.737704, 0, 2.76983, 0)

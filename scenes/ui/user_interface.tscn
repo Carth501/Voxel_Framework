@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bt23pbesacfh8"]
+[gd_scene load_steps=5 format=3 uid="uid://bt23pbesacfh8"]
 
 [ext_resource type="Script" path="res://scripts/UserInterface.gd" id="1_oeohh"]
 [ext_resource type="PackedScene" uid="uid://dasgj8uiob7jo" path="res://scenes/ui/entity_configuration_panel.tscn" id="2_ue0mo"]
+[ext_resource type="PackedScene" uid="uid://duyxghoct8ext" path="res://scenes/ui/inventory/item.tscn" id="3_1ueki"]
+[ext_resource type="Script" path="res://scripts/ui/hotbar.gd" id="3_82xv6"]
 
 [node name="UserInterface" type="Control" node_paths=PackedStringArray("entity_config")]
 layout_mode = 3
@@ -30,3 +32,54 @@ color = Color(1, 1, 1, 0.478431)
 
 [node name="EntityConfigurationPanel" parent="." instance=ExtResource("2_ue0mo")]
 layout_mode = 0
+
+[node name="Hotbar" type="Control" parent="." node_paths=PackedStringArray("slots")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_82xv6")
+slots = [NodePath("HBoxContainer/Item"), NodePath("HBoxContainer/Item2"), NodePath("HBoxContainer/Item3"), NodePath("HBoxContainer/Item4"), NodePath("HBoxContainer/Item5"), NodePath("HBoxContainer/Item6"), NodePath("HBoxContainer/Item7"), NodePath("HBoxContainer/Item8")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Hotbar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -64.0
+offset_right = 256.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Item" parent="Hotbar/HBoxContainer" instance=ExtResource("3_1ueki")]
+layout_mode = 2
+
+[node name="Item2" parent="Hotbar/HBoxContainer" instance=ExtResource("3_1ueki")]
+layout_mode = 2
+
+[node name="Item3" parent="Hotbar/HBoxContainer" instance=ExtResource("3_1ueki")]
+layout_mode = 2
+
+[node name="Item4" parent="Hotbar/HBoxContainer" instance=ExtResource("3_1ueki")]
+layout_mode = 2
+
+[node name="Item5" parent="Hotbar/HBoxContainer" instance=ExtResource("3_1ueki")]
+layout_mode = 2
+
+[node name="Item6" parent="Hotbar/HBoxContainer" instance=ExtResource("3_1ueki")]
+layout_mode = 2
+
+[node name="Item7" parent="Hotbar/HBoxContainer" instance=ExtResource("3_1ueki")]
+layout_mode = 2
+
+[node name="Item8" parent="Hotbar/HBoxContainer" instance=ExtResource("3_1ueki")]
+layout_mode = 2
